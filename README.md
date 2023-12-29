@@ -1,4 +1,5 @@
 # Content Security Policy Directive Editorcsp
+[![Node.js CI](https://github.com/vidluther/csp-directive-editor/actions/workflows/node.js.yml/badge.svg)](https://github.com/vidluther/csp-directive-editor/actions/workflows/node.js.yml)
 
 ### Disclaimer
 
