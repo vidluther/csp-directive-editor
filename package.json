@@ -1,5 +1,5 @@
 {
-  "name": "cspinator",
+  "name": "csp-directive-editor",
   "type": "module",
   "version": "1.0.0",
   "description": "A tool to deal with complex CSPs",
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "node-fetch": "^3.3.2",
     "readline": "^1.3.0"
