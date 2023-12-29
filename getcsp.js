@@ -47,9 +47,7 @@ function serializeCSP(directives) {
 function editCSP(directives) {
   console.log(
     "\x1b[36m%s\x1b[0m", // Cyan color for headings
-    `Your CSP has ${
-      Object.keys(directives).length
-    } directives. They are as follows:`
+    `Your CSP has ${Object.keys(directives).length} directives.`
   );
   Object.entries(directives).forEach(([directive, values], index) => {
     console.log(
@@ -58,9 +56,10 @@ function editCSP(directives) {
   });
   console.log("\x1b[32m%s\x1b[0m", "A: Add a new directive");
   console.log("\x1b[32m%s\x1b[0m", "P: Print the full CSP string and exit");
+  console.log("\x1b[31m%s\x1b[0m", "Q: Quit the application");
 
   rl.question(
-    "Select a directive number to edit, A to add, or P to print: ",
+    "Select a directive number to edit, A to add, P to print, or Q to quit: ",
     (answer) => {
       if (answer.toUpperCase() === "P") {
         console.log("Final CSP String:", serializeCSP(directives));
@@ -68,6 +67,10 @@ function editCSP(directives) {
         return;
       } else if (answer.toUpperCase() === "A") {
         addDirective(directives);
+        return;
+      } else if (answer.toUpperCase() === "Q") {
+        console.log("Exiting the application.");
+        rl.close();
         return;
       }
 

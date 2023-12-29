@@ -1,4 +1,4 @@
-# Content Security Policynator...
+# Content Security Policy Directive Editor
 
 ## Overview
 
@@ -26,7 +26,7 @@ Content Security Policies are a critical part of web application security, helpi
 ### Quick Start
 
 ```bash
-   git clone https://github.com/[YourUsername]/csp-directive-editor.git
+   git clone https://github.com/vidluther/csp-directive-editor.git
    cd csp-directive-editor
    npm install
 
