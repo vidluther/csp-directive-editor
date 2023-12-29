@@ -28,7 +28,7 @@ Content Security Policies are a critical part of web application security, helpi
 
 ### Prerequisites
 
-- Node.js (version 12.x or higher)
+- Node.js (version 18.x or higher)
 - Internet access for fetching CSP from URLs
 
 ### Quick Start
