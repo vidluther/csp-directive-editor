@@ -1,4 +1,10 @@
-# Content Security Policy Directive Editor
+# Content Security Policy Directive Editorcsp
+
+### Disclaimer
+
+> Most of this code was written by ChatGPT 4.x in an evening, while I was trying to debug the CSP for an existing site that is hosted on Cloudflare pages. Use at your own risk.
+This code does not claim to generate a valid CSP, it attempts to help you craft a CSP string, that you can then copy and paste into your site's CSP configuration.
+
 
 ## Overview
 
@@ -7,6 +13,7 @@ The CSP Directive Editor is a Node.js tool designed to simplify the process of m
 ## Problem Statement
 
 Content Security Policies are a critical part of web application security, helping to prevent various types of attacks like Cross-Site Scripting (XSS) and data injection. However, managing and editing CSPs can be cumbersome, especially when dealing with long and complex policies. This tool aims to make CSP management more accessible and manageable by providing an interactive way to edit CSP directives, view changes in real-time, and understand the structure of a CSP at a glance.
+
 
 ## Features
 

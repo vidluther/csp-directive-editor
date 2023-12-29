@@ -1,3 +1,9 @@
+/**
+ * Imports the node-fetch module to make HTTP requests.
+ * Imports the readline module to get input from stdin.
+ *
+ * Creates an interface to get input from stdin and output to stdout.
+ */
 import fetch from "node-fetch";
 import readline from "readline";
 
@@ -6,6 +12,12 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+/**
+ * Fetches the CSP from a given URL.
+ *
+ * @param {string} url - The URL to fetch the CSP from.
+ * @returns {Object} The deserialized CSP directives object.
+ */
 async function getCSP(url) {
   try {
     const response = await fetch(url);
@@ -23,6 +35,12 @@ async function getCSP(url) {
   }
 }
 
+/**
+ * Deserializes a CSP string into a directives object.
+ *
+ * @param {string} cspString - The raw CSP string from the HTTP header
+ * @returns {Object} The deserialized directives object
+ */
 function deserializeCSP(cspString) {
   const directives = {};
   const pairs = cspString
@@ -38,11 +56,25 @@ function deserializeCSP(cspString) {
   return directives;
 }
 
+/**
+ * Serializes a CSP directives object into a CSP header string.
+ *
+ * @param {Object} directives - The CSP directives object
+ * @returns {string} The serialized CSP header string
+ */
 function serializeCSP(directives) {
   return Object.entries(directives)
     .map(([key, values]) => `${key} ${values.join(" ")}`)
     .join("; ");
 }
+/**
+ * Interactively edits a Content Security Policy directives object.
+ * Displays the current directives, prompts the user to select one to edit,
+ * add a new one, print the full CSP string, or quit. Recursively calls itself
+ * after each edit to continue editing.
+ *
+ * @param {Object} directives - The CSP directives object to edit
+ */
 
 function editCSP(directives) {
   console.log(
@@ -95,6 +127,11 @@ function editCSP(directives) {
   );
 }
 
+/**
+ * Prompts the user to enter a new CSP directive and value(s)
+ * and adds it to the directives object.
+ * Validates input and recursively prompts again on invalid input.
+ */
 function addDirective(directives) {
   rl.question(
     "Enter the new directive name and values (e.g., 'script-src https://example.com'): ",
