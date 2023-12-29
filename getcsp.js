@@ -6,6 +6,7 @@
  */
 import fetch from "node-fetch";
 import readline from "readline";
+import fs from "fs";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -94,16 +95,24 @@ function editCSP(directives) {
     "Select a directive number to edit, A to add, P to print, or Q to quit: ",
     (answer) => {
       if (answer.toUpperCase() === "P") {
-        console.log("Final CSP String:", serializeCSP(directives));
+        const finalCSP = serializeCSP(directives);
+        console.log("\nFinal CSP String (also saved to 'generated_csp.txt'):");
+
+        console.log("\nFinal CSP String (copy and paste this line):");
+        console.log("\x1b[32m%s\x1b[0m", finalCSP); // Print in green for visibility
+        fs.writeFileSync("generated_csp.txt", finalCSP); // Save to file
+        console.log(
+          "\nTo copy the CSP to your clipboard, run: 'cat ./generated_csp.txt | pbcopy'"
+        );
         rl.close();
-        return;
+        process.exit();
       } else if (answer.toUpperCase() === "A") {
         addDirective(directives);
         return;
       } else if (answer.toUpperCase() === "Q") {
         console.log("Exiting the application.");
         rl.close();
-        return;
+        process.exit();
       }
 
       const directiveIndex = parseInt(answer) - 1;
